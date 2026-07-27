@@ -26,7 +26,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-display text-2xl tracking-[0.12em] text-gold-gradient">PARVA</p>
+            <p className="font-display text-sm tracking-[0.2em] text-gold-gradient">
+              PARVA NETWORKS
+            </p>
             <p className="mt-1 text-xs uppercase tracking-[0.14em] text-silver">
               Sports and Entertainment Pvt. Ltd.
             </p>
@@ -99,8 +101,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Parva Networks Sports and Entertainment Pvt. Ltd.
             All rights reserved.
           </p>
-          <p className="font-display text-sm tracking-[0.14em] text-gold-gradient">
-            Connecting Passion. Creating Legacies.
+          <p className="text-gold-gradient font-display tracking-[0.14em]">
+            CREATING EXPERIENCES. INSPIRING TALENT. BUILDING LEGACIES.
           </p>
         </div>
       </div>
