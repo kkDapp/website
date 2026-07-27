@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Link from "next/link";
 
 export function PageHero({
   eyebrow,
@@ -115,16 +116,16 @@ export function CTABand({
       </h2>
       <p className="mx-auto mt-5 max-w-xl text-sm text-silver sm:text-base">{description}</p>
       <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-        <a href={primary.href} className="btn-gold rounded-full px-8 py-3.5 text-xs sm:text-sm">
+        <Link href={primary.href} className="btn-gold rounded-full px-8 py-3.5 text-xs sm:text-sm">
           {primary.label}
-        </a>
+        </Link>
         {secondary && (
-          <a
+          <Link
             href={secondary.href}
             className="btn-outline-gold rounded-full px-8 py-3.5 text-xs sm:text-sm"
           >
             {secondary.label}
-          </a>
+          </Link>
         )}
       </div>
     </section>
