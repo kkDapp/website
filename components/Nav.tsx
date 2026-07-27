@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { assetPath } from "@/lib/assetPath";
 
 const LINKS = [
   { href: "/about", label: "About" },
@@ -24,7 +25,7 @@ export default function Nav() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
-            src="/images/parva-logo.jpeg"
+            src={assetPath("/images/parva-logo.jpeg")}
             alt="Parva Networks"
             width={40}
             height={40}

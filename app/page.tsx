@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 import Link from "next/link";
 import { CTABand, Card, Marquee, SectionHeading, Stat } from "@/components/ui";
 
@@ -69,7 +70,7 @@ export default function Home() {
         />
         <div className="relative mx-auto flex max-w-5xl flex-col items-center text-center">
           <Image
-            src="/images/parva-logo.jpeg"
+            src={assetPath("/images/parva-logo.jpeg")}
             alt="Parva Networks Sports and Entertainment"
             width={104}
             height={104}
