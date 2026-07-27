@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+.tools/
+
+# local notes / briefs
+/brief/
 
 # debug
 npm-debug.log*
