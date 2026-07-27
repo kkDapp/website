@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CTABand, Card, Marquee, SectionHeading, Stat } from "@/components/ui";
+import { CTABand, Marquee, SectionHeading, Stat } from "@/components/ui";
 
 const PROPERTIES = [
   {
@@ -59,54 +59,58 @@ const MARQUEE_ITEMS = [
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line px-5 py-24 sm:px-8 sm:py-36">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-50"
-          style={{
-            background:
-              "radial-gradient(55% 55% at 50% 10%, rgba(212,175,55,0.2), transparent 70%)",
-          }}
-        />
+      <section className="stage-atmosphere relative min-h-[88vh] overflow-hidden border-b border-line px-5 py-20 sm:px-8 sm:py-28 lg:min-h-[92vh] lg:py-32">
+        <div className="stage-beams" aria-hidden />
         <div className="relative mx-auto flex max-w-5xl flex-col items-center text-center">
           <Image
             src="/images/parva-logo.jpeg"
             alt="Parva Networks Sports and Entertainment"
-            width={104}
-            height={104}
-            className="rounded-full shadow-[0_0_60px_rgba(212,175,55,0.25)]"
+            width={120}
+            height={120}
+            className="logo-pulse reveal rounded-full"
             priority
           />
-          <p className="mt-8 text-xs font-semibold uppercase tracking-[0.35em] text-gold">
-            Sports and Entertainment Pvt. Ltd.
+          <p className="reveal reveal-delay-1 mt-9 font-display text-[11px] font-semibold uppercase tracking-[0.42em] text-gold sm:text-xs">
+            Parva Networks
           </p>
-          <h1 className="hero-display tracking-tightest mt-5 text-5xl text-gold-gradient sm:text-7xl lg:text-8xl">
+          <h1 className="hero-display tracking-tightest reveal reveal-delay-2 mt-5 text-5xl text-gold-gradient sm:text-7xl lg:text-[5.75rem]">
             Connecting Passion.
-            <br /> Creating Legacies.
+            <br />
+            Creating Legacies.
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-silver sm:text-base">
-            Parva Networks is an emerging sports and entertainment company building
-            world-class intellectual properties across dance, music, sports and digital
-            entertainment — starting with India&rsquo;s premier professional dance league,
-            the India Dance Premier League (IDPL).
+          <p className="reveal reveal-delay-3 mx-auto mt-8 max-w-xl text-sm leading-relaxed text-silver sm:text-base">
+            Building world-class intellectual properties across dance, music, sports and
+            digital entertainment — led by the India Dance Premier League.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/idpl" className="btn-gold rounded-full px-8 py-3.5 text-xs sm:text-sm">
+          <div className="reveal reveal-delay-4 mt-11 flex flex-wrap items-center justify-center gap-4">
+            <Link href="/idpl" className="btn-gold rounded-full px-9 py-3.5 text-xs sm:text-sm">
               Explore IDPL
             </Link>
             <Link
               href="/partner"
-              className="btn-outline-gold rounded-full px-8 py-3.5 text-xs sm:text-sm"
+              className="btn-outline-gold rounded-full px-9 py-3.5 text-xs sm:text-sm"
             >
               Partner With Us
             </Link>
           </div>
         </div>
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink to-transparent"
+          aria-hidden
+        />
       </section>
 
       <Marquee items={MARQUEE_ITEMS} />
 
-      <section className="border-b border-line bg-ink-2 px-5 py-16 sm:px-8">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-10 sm:grid-cols-4">
+      <section className="relative overflow-hidden border-b border-line px-5 py-16 sm:px-8 sm:py-20">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(50% 80% at 50% 50%, rgba(212,175,55,0.07), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-5xl grid-cols-2 gap-y-12 gap-x-8 sm:grid-cols-4">
           <Stat value="6" label="Launch Cities — Season 1" />
           <Stat value="4K–7K" label="Season 1 Registrations" />
           <Stat value="6" label="Competition Categories" />
@@ -115,43 +119,51 @@ export default function Home() {
       </section>
 
       <section className="px-5 py-24 sm:px-8 sm:py-32">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-5xl">
           <SectionHeading
             kicker="One Company. Multiple IPs."
-            title="Our Flagship & Future Properties"
+            title="Flagship & Future Properties"
             center
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 border-t border-line">
             {PROPERTIES.map((p) => (
-              <Link key={p.name} href={p.href} className="group block">
-                <Card className="h-full">
-                  <div className="flex items-start justify-between">
-                    <p className="font-display text-xs tracking-[0.2em] text-gold">{p.tag}</p>
-                    <p className="hero-display text-lg text-silver/40 transition-colors group-hover:text-gold">
-                      {p.index}
-                    </p>
+              <Link key={p.name} href={p.href} className="property-row group block py-7 sm:py-8">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+                  <p className="property-index hero-display w-12 shrink-0 text-2xl text-silver/35 transition-colors duration-300">
+                    {p.index}
+                  </p>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-display text-[11px] tracking-[0.28em] text-gold">{p.tag}</p>
+                    <h3 className="mt-1.5 text-xl font-semibold tracking-tight text-paper sm:text-2xl">
+                      {p.name}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-silver">{p.desc}</p>
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold tracking-tight text-paper">
-                    {p.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-silver">{p.desc}</p>
-                </Card>
+                  <span
+                    className="property-arrow hidden text-2xl text-silver/40 transition-all duration-300 sm:block"
+                    aria-hidden
+                  >
+                    →
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-line bg-ink-2 px-5 py-24 sm:px-8 sm:py-32">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="hero-display tracking-tightest text-2xl leading-[1.15] text-paper sm:text-4xl">
+      <section className="relative overflow-hidden border-y border-line px-5 py-24 sm:px-8 sm:py-32">
+        <div className="stage-beams opacity-40" aria-hidden />
+        <div className="relative mx-auto max-w-3xl text-center">
+          <div className="gold-rule mx-auto mb-10 w-24" />
+          <p className="hero-display tracking-tightest text-2xl leading-[1.2] text-paper sm:text-4xl">
             &ldquo;Together, we are not just building events&mdash;we are building
             India&rsquo;s future in sports, entertainment, and live experiences.&rdquo;
           </p>
-          <p className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-gold">
+          <p className="mt-10 text-sm font-semibold uppercase tracking-[0.22em] text-gold">
             K. P. Prabhudev
           </p>
-          <p className="text-xs uppercase tracking-[0.14em] text-silver">
+          <p className="mt-1 text-xs uppercase tracking-[0.16em] text-silver">
             Managing Director, Parva Networks
           </p>
         </div>
@@ -159,7 +171,7 @@ export default function Home() {
 
       <CTABand
         title="One Vision. One Brand. Unlimited Possibilities."
-        description="Whether you're an investor, sponsor, brand, dancer or performer — we invite you to join us in shaping the future of Indian sports and entertainment."
+        description="Whether you're an investor, sponsor, brand, dancer or performer — join us in shaping the future of Indian sports and entertainment."
         primary={{ href: "/partner", label: "Become a Partner" }}
         secondary={{ href: "/contact", label: "Get In Touch" }}
       />
